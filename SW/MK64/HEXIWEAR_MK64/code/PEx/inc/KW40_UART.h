@@ -83,6 +83,9 @@ extern uart_state_t KW40_UART_State;
 /*! @brief UART configuration declaration */
 extern const uart_user_config_t KW40_UART_InitConfig0;
 
+/* moved here as the KW40_UART.c also uses this function */
+void HostInterface_SetWakingTouch();
+
 #endif
  /** ifndef __KW40_UART_H */
 /*!

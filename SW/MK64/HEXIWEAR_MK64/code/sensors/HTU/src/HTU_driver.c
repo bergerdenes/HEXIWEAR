@@ -178,9 +178,6 @@ htu_status_t HTU_SetUserRegister()
   uint8_t
     txBuff;
 
-  uint8_t
-    rxBuff[1];
-
   /**
    * set a byte to be written to user register
    * and also set the corresponding measurement time

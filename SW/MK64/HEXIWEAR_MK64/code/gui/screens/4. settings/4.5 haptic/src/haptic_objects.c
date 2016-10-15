@@ -1,7 +1,7 @@
 /**
- * \file googleApp.h
+ * \file haptic_objects.c
  * \version 1.00
- * \brief this file contains google app QR code GUI public objects' declarations
+ * \brief this file contains haptic feedback GUI objects
  *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
@@ -35,10 +35,36 @@
  * Project HEXIWEAR, 2015
  */
 
-#pragma once
-
 #include "gui_driver.h"
+#include "screens_common.h"
+#include "haptic_private.h"
 
-// screens
-extern guiScreen_t googleAppScreen;
-extern guiScreen_t googleAppQrCodeScreen;
+/** haptic screen structure */
+guiScreen_t hapticScreen =
+{
+  .navigation =
+  {
+          .up     = &buttonsGroupScreen,
+          .down   = &aboutScreen,
+          .left   = &settingsScreen,
+          .right  = NULL
+  },
+
+  .image = haptic_screen_bmp,
+
+  .initFunction        = haptic_Init,
+  .createTaskFunction  = haptic_CreateTasks,
+  .destroyTaskFunction = haptic_DestroyTasks
+};
+
+guiImage_t
+	haptic_icon =
+    {
+        .dynamicArea =
+        {
+			.xCrd   = 24,
+			.yCrd   = 23
+        },
+
+		.img = haptic_icon_blue_bmp
+    };

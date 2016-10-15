@@ -65,7 +65,7 @@ guiScreen_t bootloaderCoverScreen =
 {
   .navigation =
   {
-          .up     = &bluetoothScreen,
+          .up     = &watchSetScreen,
           .down   = &buttonsGroupScreen,
           .left   = &settingsScreen,
           .right  = &bootloaderMainScreen

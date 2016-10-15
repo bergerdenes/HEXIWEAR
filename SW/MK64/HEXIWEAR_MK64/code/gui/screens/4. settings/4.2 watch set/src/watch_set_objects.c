@@ -15,8 +15,8 @@ guiScreen_t watchSetScreen =
 {
   .navigation =
   {
-          .up     = &resetScreen,
-          .down   = &bluetoothScreen,
+          .up     = &bluetoothScreen,
+          .down   = &bootloaderCoverScreen,
           .left   = &settingsScreen,
           .right  = &watchSetScreen_mainScreen
   },

@@ -967,7 +967,7 @@ fxos_status_t FXOS_Callback()
         // handle the tap event, if it occurred
         if ( 0 != ( interrupts & 0x08 ) )
         {
-            TapHandler();
+        	FXOS_TapHandler();
         }
         return STATUS_FXOS_SUCCESS;
     }

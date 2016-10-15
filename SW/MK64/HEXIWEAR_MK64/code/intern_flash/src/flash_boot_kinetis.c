@@ -396,12 +396,6 @@ uint8_t INTFLASH_ProgramHwRev( hexiwear_hw_rev_t* source )
  */
 uint8_t INTFLASH_ReadHwRev( hexiwear_hw_rev_t* dst )
 {
-	uint8_t
-		i = 0;
-
-	uint8_t*
-		foo = (uint8_t*)dst;
-
 	 /** preparing passing parameter to program the FLASH block */
 	CommandObj.regs.fccob0 = FLASH_READ_ONCE;
 	CommandObj.regs.fccob1 = FLASH_HW_VER_RECORD;

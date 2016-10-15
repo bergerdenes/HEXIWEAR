@@ -72,8 +72,7 @@ void info_Init( void* param )
 	GuiDriver_LabelSetCaption(&info_labelData2, (uint8_t *) "www.mikroe.com");
 	GuiDriver_LabelAddToScr(&info_labelData2);
 
-	 uint8_t
-	 	 flashStatus = INTFLASH_ReadHwRev( &hexiwear_hwVersion );
+	INTFLASH_ReadHwRev( &hexiwear_hwVersion );
 
 	// register buttons for toggling fitness processes
 	GuiDriver_RegisterForNavigation( GUI_NAVIGATION_UP );
