@@ -77,8 +77,10 @@
 
 typedef enum
 {
-    packetType_pressUp          = 0, /**< touch press up */
-    packetType_pressDown        = 1, /**< touch press down */
+    packetType_pressLeftUp      = 36, /**< touch press left up */
+    packetType_pressLeftDown    = 37, /**< touch press left down */
+    packetType_pressRightUp     = 0, /**< touch press right up */
+    packetType_pressRightDown   = 1, /**< touch press right down */
     packetType_pressLeft        = 2, /**< touch press left */
     packetType_pressRight       = 3, /**< touch press right */
     packetType_slide            = 4, /**< touch slide */

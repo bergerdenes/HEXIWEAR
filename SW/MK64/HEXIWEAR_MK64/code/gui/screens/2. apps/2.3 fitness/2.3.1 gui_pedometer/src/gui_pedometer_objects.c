@@ -44,8 +44,10 @@ guiScreen_t
     {
         .navigation =
         {
-            .up     = &heartRateScreen,
-            .down   = &heartRateScreen,
+			.lup     = NULL,
+			.ldown   = NULL,
+            .rup     = &heartRateScreen,
+            .rdown   = &heartRateScreen,
             .left   = &fitnessScreen,
             .right  = NULL
         },

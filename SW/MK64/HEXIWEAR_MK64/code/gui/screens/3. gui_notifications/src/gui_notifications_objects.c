@@ -45,10 +45,12 @@ guiScreen_t notifScreen =
 {
   .navigation =
   {
-          .up    = &appsScreen,
-          .down  = &settingsScreen,
-          .left  = &watchScreen,
-          .right = &notifMainScreen
+			.lup     = NULL,
+			.ldown   = NULL,
+            .rup    = &appsScreen,
+            .rdown  = &settingsScreen,
+            .left  = &watchScreen,
+            .right = &notifMainScreen
   },
 
   .image = gui_notifications_screen_bmp,
@@ -62,10 +64,12 @@ guiScreen_t notifMainScreen =
 {
   .navigation =
   {
-          .up    = NULL,
-          .down  = NULL,
-          .left  = &notifScreen,
-          .right = NULL
+			.lup     = NULL,
+			.ldown   = NULL,
+            .rup    = NULL,
+            .rdown  = NULL,
+            .left  = &notifScreen,
+            .right = NULL
   },
 
   .image = gui_notifications_mainScreen_bmp,

@@ -43,8 +43,10 @@ guiScreen_t aboutScreen =
 {
   .navigation =
   {
-          .up     = &hapticScreen,
-          .down   = &resetScreen,
+		  .lup     = NULL,
+		  .ldown   = NULL,
+          .rup     = &hapticScreen,
+          .rdown   = &resetScreen,
           .left   = &settingsScreen,
           .right  = &infoScreen
   },

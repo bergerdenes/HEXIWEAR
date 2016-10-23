@@ -104,8 +104,10 @@ static void PacketHandler( hostInterface_packet_t* self )
   switch( self->type )
   {
     // buttons
-    case packetType_pressUp:
-    case packetType_pressDown:
+    case packetType_pressLeftUp:
+    case packetType_pressLeftDown:
+    case packetType_pressRightUp:
+    case packetType_pressRightDown:
     case packetType_pressLeft:
     case packetType_pressRight:
     {

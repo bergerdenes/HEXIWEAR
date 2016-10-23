@@ -43,8 +43,10 @@ guiScreen_t resetScreen =
 {
   .navigation =
   {
-          .up     = &aboutScreen,
-          .down   = &bluetoothScreen,
+		  .lup     = NULL,
+		  .ldown   = NULL,
+          .rup     = &aboutScreen,
+          .rdown   = &bluetoothScreen,
           .left   = &settingsScreen,
           .right  = NULL
   },

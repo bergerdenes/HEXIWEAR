@@ -36,15 +36,15 @@ static void updateSelectedSegmentColors()
 
 static void registerNavigationKeys()
 {
-	GuiDriver_RegisterForNavigation(GUI_NAVIGATION_UP);
-	GuiDriver_RegisterForNavigation(GUI_NAVIGATION_DOWN);
+	GuiDriver_RegisterForNavigation(GUI_NAVIGATION_RUP);
+	GuiDriver_RegisterForNavigation(GUI_NAVIGATION_RDOWN);
 	GuiDriver_RegisterForNavigation(GUI_NAVIGATION_RIGHT);
 }
 
 static void unregisterNavigationKeys()
 {
-	GuiDriver_UnregisterFromNavigation(GUI_NAVIGATION_UP);
-	GuiDriver_UnregisterFromNavigation(GUI_NAVIGATION_DOWN);
+	GuiDriver_UnregisterFromNavigation(GUI_NAVIGATION_RUP);
+	GuiDriver_UnregisterFromNavigation(GUI_NAVIGATION_RDOWN);
 	GuiDriver_UnregisterFromNavigation(GUI_NAVIGATION_RIGHT);
 }
 
@@ -118,24 +118,24 @@ void watchSet_Init( void* param )
 	time_toSet.second = 0;
 
 	snprintf( (char*)gui_year_label.caption, 6, "%04d.", time_toSet.year);
-	GuiDriver_LabelAddToScr(&gui_year_label);
+	GuiDriver_LabelDraw(&gui_year_label);
 
 	const char *monthsOfYearPtr;
 	monthsOfYearPtr = monthsOfYearStr[time_toSet.month - 1];
 	snprintf( (char*)gui_month_label.caption, 4, "%s", monthsOfYearPtr);
-	GuiDriver_LabelAddToScr(&gui_month_label);
+	GuiDriver_LabelDraw(&gui_month_label);
 
 	snprintf( (char*)gui_day_label.caption, 4, "%02d.", time_toSet.day);
 	GuiDriver_LabelDraw(&gui_day_label);
 
 	snprintf( (char*)gui_hour_label.caption, 3, "%02d", time_toSet.hour);
-	GuiDriver_LabelAddToScr(&gui_hour_label);
+	GuiDriver_LabelDraw(&gui_hour_label);
 
 	snprintf( (char*)gui_time_colon_label.caption, 2, ":");
-	GuiDriver_LabelAddToScr(&gui_time_colon_label);
+	GuiDriver_LabelDraw(&gui_time_colon_label);
 
 	snprintf( (char*)gui_minute_label.caption, 3, "%02d", time_toSet.minute);
-	GuiDriver_LabelAddToScr(&gui_minute_label);
+	GuiDriver_LabelDraw(&gui_minute_label);
 }
 
 void watchSet_CreateTasks( void* param )
@@ -182,7 +182,8 @@ static void watchSet_appTask(task_param_t param)
 		{
 			switch ( watchSet_dataPacket.type )
 			{
-				case packetType_pressUp:
+				case packetType_pressLeftUp:
+				case packetType_pressRightDown:
 				{
 					segmentSelected++;
 					segmentSelected %= SETTING_SEGMENT_COUNT;
@@ -190,7 +191,15 @@ static void watchSet_appTask(task_param_t param)
 					break;
 				}
 
-				case packetType_pressDown:
+				case packetType_pressLeftDown:
+				{
+					segmentSelected--;
+					if (segmentSelected < 0) segmentSelected = SETTING_SEGMENT_COUNT - 1;
+					updateAfterSelectionChange();
+					break;
+				}
+
+				case packetType_pressRightUp:
 				{
 					switch (segmentSelected)
 					{

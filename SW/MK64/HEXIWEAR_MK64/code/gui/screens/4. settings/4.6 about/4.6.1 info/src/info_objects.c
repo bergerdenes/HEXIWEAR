@@ -43,8 +43,10 @@ guiScreen_t infoScreen =
 {
   .navigation =
   {
-          .up     = NULL,
-          .down   = NULL,
+		  .lup     = NULL,
+		  .ldown   = NULL,
+          .rup     = NULL,
+          .rdown   = NULL,
           .left   = &aboutScreen,
           .right  = NULL
   },

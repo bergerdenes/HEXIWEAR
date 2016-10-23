@@ -49,10 +49,12 @@ guiScreen_t bondScreen =
 {
   .navigation =
   {
-          .up     = NULL,
-          .down   = NULL,
-          .left   = NULL,
-          .right  = NULL
+		  .lup     = NULL,
+		  .ldown   = NULL,
+          .rup     = NULL,
+          .rdown   = NULL,
+          .left    = NULL,
+          .right   = NULL
   },
 
   .image = bond_screen_bmp,

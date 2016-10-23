@@ -84,10 +84,12 @@ guiLabel_t screen_labelBack =
 guiScreen_t
   splashScreen = {
                         .navigation = {
-                                        .up     = NULL,
-                                        .down   = NULL,
-                                        .left   = NULL,
-                                        .right  = NULL
+										.lup     = NULL,
+										.ldown   = NULL,
+                                        .rup     = NULL,
+                                        .rdown   = NULL,
+                                        .left    = NULL,
+                                        .right   = NULL
                                       },
 
                         .image = hexiwear_logo_bmp,

@@ -44,10 +44,12 @@
  {
    .navigation =
    {
-           .up     = &gui_motionControl_coverScreen,
-           .down   = &fitnessScreen,
-           .left   = &appsScreen,
-           .right  = NULL
+		   	.lup     = NULL,
+			.ldown   = NULL,
+			.rup     = &gui_motionControl_coverScreen,
+            .rdown   = &fitnessScreen,
+            .left   = &appsScreen,
+            .right  = NULL
    },
 
    .image = flashlight_screen_bmp,

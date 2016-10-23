@@ -49,11 +49,13 @@ guiScreen_t appsScreen =
 {
   .navigation =
   {
-          .up     = &gui_sensorTag_screen,
-          .down   = &notifScreen,
+		.lup     = NULL,
+		.ldown   = NULL,
+        .rup     = &gui_sensorTag_screen,
+        .rdown   = &notifScreen,
 //          .down   = &settingsScreen,
-          .left   = &watchScreen,
-          .right  = &gui_weatherStation_coverScreen
+        .left   = &watchScreen,
+        .right  = &gui_weatherStation_coverScreen
   },
 
   .image = apps_screen_bmp,

@@ -167,7 +167,7 @@ gui_status_t GuiDriver_Init()
     return GUI_STATUS_ERROR;
   }
   GuiDriver_Navigation( GUI_NAVIGATION_SPLASH, NULL );
-  OSA_TimeDelay(750);
+  OSA_TimeDelay(1000);
 
   // Read link state
   watch_CreateLinkStateUpdateEvent();
@@ -221,15 +221,27 @@ gui_status_t GuiDriver_ButtonsHandler(hostInterface_packet_t* packet)
 
     	switch(packet->type)
     	{
-    		case packetType_pressUp :
+    		case packetType_pressLeftUp :
     		{
-    			navigationDir = GUI_NAVIGATION_UP;
+    			navigationDir = GUI_NAVIGATION_LUP;
     			break;
     		}
 
-    		case packetType_pressDown :
+    		case packetType_pressLeftDown :
     		{
-    			navigationDir = GUI_NAVIGATION_DOWN;
+    			navigationDir = GUI_NAVIGATION_LDOWN;
+    			break;
+    		}
+
+    		case packetType_pressRightUp :
+    		{
+    			navigationDir = GUI_NAVIGATION_RUP;
+    			break;
+    		}
+
+    		case packetType_pressRightDown :
+    		{
+    			navigationDir = GUI_NAVIGATION_RDOWN;
     			break;
     		}
 
@@ -343,14 +355,26 @@ gui_status_t GuiDriver_Navigation(guiNavigationDir_t navigationDir, void *param)
 				  break;
 		  }
 
-		  case GUI_NAVIGATION_UP: {
-				  ptrNewScreen = navigation->up;
+		  case GUI_NAVIGATION_LUP: {
+				  ptrNewScreen = navigation->lup;
 				  transition = OLED_TRANSITION_DOWN_TOP;
 				  break;
 		  }
 
-		  case GUI_NAVIGATION_DOWN: {
-				  ptrNewScreen = navigation->down;
+		  case GUI_NAVIGATION_LDOWN: {
+				  ptrNewScreen = navigation->ldown;
+				  transition = OLED_TRANSITION_TOP_DOWN;
+				  break;
+		  }
+
+		  case GUI_NAVIGATION_RUP: {
+				  ptrNewScreen = navigation->rup;
+				  transition = OLED_TRANSITION_DOWN_TOP;
+				  break;
+		  }
+
+		  case GUI_NAVIGATION_RDOWN: {
+				  ptrNewScreen = navigation->rdown;
 				  transition = OLED_TRANSITION_TOP_DOWN;
 				  break;
 		  }
@@ -739,12 +763,12 @@ static void GuiDriver_AddButtonPointers(guiNavigation_t *navigation)
 		buttonDown = &screen_buttonLeftDown;
 	}
 
-	if(navigation->up != NULL)
+	if(navigation->rup != NULL)
 	{
 		GuiDriver_ImageAddToScr(buttonUp);
 	}
 
-	if(navigation->down != NULL)
+	if(navigation->rdown != NULL)
 	{
 		GuiDriver_ImageAddToScr(buttonDown);
 	}

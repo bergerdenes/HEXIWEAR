@@ -125,8 +125,8 @@ void bootloader_Init( void* param )
   GuiDriver_ImageAddToScr( &bootloader_selectKW40 );
 
   // register buttons for toggling fitness processes
-  GuiDriver_RegisterForNavigation( GUI_NAVIGATION_UP );
-  GuiDriver_RegisterForNavigation( GUI_NAVIGATION_DOWN );
+  GuiDriver_RegisterForNavigation( GUI_NAVIGATION_RUP );
+  GuiDriver_RegisterForNavigation( GUI_NAVIGATION_RDOWN );
 
   // If bluetooth advertise disabled, prohibit the OTAP mode.
   if(bluetooth_CurrentAdvModeGet() == bluetooth_advMode_enable)
@@ -211,8 +211,8 @@ void bootloader_DestroyTasks( void* param )
 
   OSA_MsgQDestroy( bootloader_queueHnd );
 
-  GuiDriver_UnregisterFromNavigation( GUI_NAVIGATION_UP );
-  GuiDriver_UnregisterFromNavigation( GUI_NAVIGATION_DOWN );
+  GuiDriver_UnregisterFromNavigation( GUI_NAVIGATION_RUP );
+  GuiDriver_UnregisterFromNavigation( GUI_NAVIGATION_RDOWN );
   GuiDriver_UnregisterFromNavigation( GUI_NAVIGATION_RIGHT );
 
   OLED_DestroyDynamicArea();
@@ -266,7 +266,7 @@ void bootloader_DestroyTasks( void* param )
 		switch( bootloader_dataPacket.type )
 		{
 			// select MK64
-			case packetType_pressUp:
+			case packetType_pressRightUp:
 			{
 				/** display the chosen option */
 				GuiDriver_ImageDraw( &bootloader_selectMK64 );
@@ -280,7 +280,7 @@ void bootloader_DestroyTasks( void* param )
 			}
 
 			// select MKW40
-			case packetType_pressDown:
+			case packetType_pressRightDown:
 			{
 				/** display the chosen option */
 				GuiDriver_ImageDraw( &bootloader_selectKW40 );
@@ -323,8 +323,8 @@ void bootloader_DestroyTasks( void* param )
 			GuiDriver_ImageDraw(&screen_buttonStartDisabled);
 			GuiDriver_ImageDraw(&screen_buttonBackDisabled);
 
-			GuiDriver_UnregisterFromNavigation( GUI_NAVIGATION_UP );
-			GuiDriver_UnregisterFromNavigation( GUI_NAVIGATION_DOWN );
+			GuiDriver_UnregisterFromNavigation( GUI_NAVIGATION_RUP );
+			GuiDriver_UnregisterFromNavigation( GUI_NAVIGATION_RDOWN );
 			GuiDriver_UnregisterFromNavigation( GUI_NAVIGATION_RIGHT );
 
 			// send the packet and start to measure for timeout

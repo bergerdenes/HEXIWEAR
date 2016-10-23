@@ -44,8 +44,10 @@ guiScreen_t
     {
         .navigation =
         {
-            .up     = &gui_weatherStation_coverScreen,
-            .down   = &flashlightScreen,
+			.lup     = NULL,
+			.ldown   = NULL,
+            .rup     = &gui_weatherStation_coverScreen,
+            .rdown   = &flashlightScreen,
             .left   = &appsScreen,
             .right  = &gui_motionControl_accScreen
         },
@@ -62,8 +64,10 @@ guiScreen_t
     {
         .navigation =
         {
-            .up     = &gui_motionControl_gyroScreen,
-            .down   = &gui_motionControl_gyroScreen,
+			.lup     = NULL,
+			.ldown   = NULL,
+            .rup     = &gui_motionControl_gyroScreen,
+            .rdown   = &gui_motionControl_gyroScreen,
             .left   = &gui_motionControl_coverScreen,
             .right  = NULL
         },
@@ -80,8 +84,10 @@ guiScreen_t
     {
         .navigation =
         {
-            .up     = &gui_motionControl_accScreen,
-            .down   = &gui_motionControl_accScreen,
+			.lup     = NULL,
+			.ldown   = NULL,
+            .rup     = &gui_motionControl_accScreen,
+            .rdown   = &gui_motionControl_accScreen,
             .left   = &gui_motionControl_coverScreen,
             .right  = NULL
         },

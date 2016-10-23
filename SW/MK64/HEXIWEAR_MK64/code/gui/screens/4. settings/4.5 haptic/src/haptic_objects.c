@@ -44,8 +44,10 @@ guiScreen_t hapticScreen =
 {
   .navigation =
   {
-          .up     = &buttonsGroupScreen,
-          .down   = &aboutScreen,
+		  .lup     = NULL,
+		  .ldown   = NULL,
+          .rup     = &buttonsGroupScreen,
+          .rdown   = &aboutScreen,
           .left   = &settingsScreen,
           .right  = NULL
   },

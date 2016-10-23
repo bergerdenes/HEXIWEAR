@@ -46,8 +46,10 @@ guiScreen_t watchScreen =
 {
   .navigation =
   {
-          .up     = NULL,
-          .down   = NULL,
+          .lup     = NULL,
+          .ldown   = NULL,
+          .rup     = NULL,
+          .rdown   = NULL,
           .left   = NULL,
           .right  = &appsScreen,
   },

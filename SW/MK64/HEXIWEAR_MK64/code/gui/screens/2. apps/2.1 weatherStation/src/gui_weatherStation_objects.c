@@ -47,8 +47,10 @@ guiScreen_t
     {
         .navigation =
         {
-            .up     = &fitnessScreen,
-            .down   = &gui_motionControl_coverScreen,
+			.lup     = NULL,
+			.ldown   = NULL,
+            .rup     = &fitnessScreen,
+            .rdown   = &gui_motionControl_coverScreen,
             .left   = &appsScreen,
             .right  = &gui_weatherStationScreen_mainScreen
         },
@@ -65,8 +67,10 @@ static guiScreen_t
     {
         .navigation =
         {
-            .up     = NULL,
-            .down   = NULL,
+			.lup     = NULL,
+			.ldown   = NULL,
+            .rup     = NULL,
+            .rdown   = NULL,
             .left   = &gui_weatherStation_coverScreen,
             .right  = NULL
         },

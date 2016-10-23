@@ -45,10 +45,12 @@ guiScreen_t bluetoothScreen =
 {
   .navigation =
   {
-          .up     = &resetScreen,
-          .down   = &watchSetScreen,
-          .left   = &settingsScreen,
-          .right  = NULL
+			.lup     = NULL,
+			.ldown   = NULL,
+            .rup     = &resetScreen,
+            .rdown   = &watchSetScreen,
+            .left   = &settingsScreen,
+            .right  = NULL
   },
 
   .image = bluetooth_screen_bmp,

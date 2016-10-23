@@ -41,11 +41,13 @@
 #include "OLED_driver.h"
 #include "gui_info.h"
 
-/** GUI navigation pointers */
+/** GUI navigation pointers six directions */
 typedef struct GuiNavigation
 {
-  struct GuiItem *up;
-  struct GuiItem *down;
+  struct GuiItem *lup;
+  struct GuiItem *ldown;
+  struct GuiItem *rup;
+  struct GuiItem *rdown;
   struct GuiItem *left;
   struct GuiItem *right;
 
@@ -91,12 +93,14 @@ typedef enum
   GUI_NAVIGATION_WATCH        = 0,
   GUI_NAVIGATION_BOND         = 0x1 << 1,
 
-  GUI_NAVIGATION_UP    	      = 0x1 << 2,
-  GUI_NAVIGATION_DOWN         = 0x1 << 3,
-  GUI_NAVIGATION_LEFT	      = 0x1 << 4,
-  GUI_NAVIGATION_RIGHT	      = 0x1 << 5,
+  GUI_NAVIGATION_LUP          = 0x1 << 2,
+  GUI_NAVIGATION_LDOWN        = 0x1 << 3,
+  GUI_NAVIGATION_RUP          = 0x1 << 4,
+  GUI_NAVIGATION_RDOWN        = 0x1 << 5,
+  GUI_NAVIGATION_LEFT	      = 0x1 << 6,
+  GUI_NAVIGATION_RIGHT	      = 0x1 << 7,
 
-  GUI_NAVIGATION_SPLASH       = 0x1 << 7,
+  GUI_NAVIGATION_SPLASH       = 0x1 << 8,
 
 } guiNavigationDir_t;
 

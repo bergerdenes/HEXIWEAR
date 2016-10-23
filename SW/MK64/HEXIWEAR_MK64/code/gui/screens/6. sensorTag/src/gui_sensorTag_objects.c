@@ -44,8 +44,10 @@ guiScreen_t
     {
         .navigation =
         {
-            .up     = &settingsScreen,
-            .down   = &appsScreen,
+			.lup     = NULL,
+			.ldown   = NULL,
+            .rup     = &settingsScreen,
+            .rdown   = &appsScreen,
             .left   = &watchScreen,
             .right  = NULL
         },

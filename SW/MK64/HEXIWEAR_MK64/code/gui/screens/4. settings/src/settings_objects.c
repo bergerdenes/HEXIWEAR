@@ -49,9 +49,11 @@ guiScreen_t settingsScreen =
 {
   .navigation =
   {
-          .up     = &notifScreen,
+		  .lup     = NULL,
+		  .ldown   = NULL,
+          .rup     = &notifScreen,
 //          .up     = &appsScreen,
-          .down   = &gui_sensorTag_screen,
+          .rdown   = &gui_sensorTag_screen,
           .left   = &watchScreen,
           .right  = &bluetoothScreen
   },

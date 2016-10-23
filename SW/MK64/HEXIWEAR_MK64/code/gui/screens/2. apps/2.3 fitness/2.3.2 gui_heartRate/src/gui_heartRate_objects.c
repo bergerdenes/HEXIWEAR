@@ -44,8 +44,10 @@ guiScreen_t
     {
         .navigation =
         {
-            .up     = &pedometerScreen,
-            .down   = &pedometerScreen,
+			.lup     = NULL,
+			.ldown   = NULL,
+            .rup     = &pedometerScreen,
+            .rdown   = &pedometerScreen,
             .left   = &fitnessScreen,
             .right  = NULL
         },

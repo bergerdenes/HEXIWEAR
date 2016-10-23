@@ -48,8 +48,8 @@ static guiScreen_t bootloaderMainScreen =
 {
   .navigation =
   {
-          .up     = NULL,
-          .down   = NULL,
+          .rup     = NULL,
+          .rdown   = NULL,
           .left   = &bootloaderCoverScreen,
           .right  = NULL
   },
@@ -65,8 +65,10 @@ guiScreen_t bootloaderCoverScreen =
 {
   .navigation =
   {
-          .up     = &watchSetScreen,
-          .down   = &buttonsGroupScreen,
+		  .lup     = NULL,
+		  .ldown   = NULL,
+          .rup     = &watchSetScreen,
+          .rdown   = &buttonsGroupScreen,
           .left   = &settingsScreen,
           .right  = &bootloaderMainScreen
   },

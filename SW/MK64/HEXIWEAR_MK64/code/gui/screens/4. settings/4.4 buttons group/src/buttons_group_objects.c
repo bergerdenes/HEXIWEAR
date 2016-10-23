@@ -43,8 +43,10 @@ guiScreen_t buttonsGroupScreen =
 {
   .navigation =
   {
-          .up     = &bootloaderCoverScreen,
-          .down   = &hapticScreen,
+		  .lup     = NULL,
+		  .ldown   = NULL,
+          .rup     = &bootloaderCoverScreen,
+          .rdown   = &hapticScreen,
           .left   = &settingsScreen,
           .right  = NULL
   },

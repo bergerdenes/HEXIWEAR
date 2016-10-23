@@ -75,8 +75,8 @@ void info_Init( void* param )
 	INTFLASH_ReadHwRev( &hexiwear_hwVersion );
 
 	// register buttons for toggling fitness processes
-	GuiDriver_RegisterForNavigation( GUI_NAVIGATION_UP );
-	GuiDriver_RegisterForNavigation( GUI_NAVIGATION_DOWN );
+	GuiDriver_RegisterForNavigation( GUI_NAVIGATION_RUP );
+	GuiDriver_RegisterForNavigation( GUI_NAVIGATION_RDOWN );
 }
 
 /**
@@ -113,8 +113,8 @@ void info_DestroyTasks( void* param )
 
     OLED_DestroyDynamicArea();
 
-    GuiDriver_UnregisterFromNavigation( GUI_NAVIGATION_UP );
-    GuiDriver_UnregisterFromNavigation( GUI_NAVIGATION_DOWN );
+    GuiDriver_UnregisterFromNavigation( GUI_NAVIGATION_RUP );
+    GuiDriver_UnregisterFromNavigation( GUI_NAVIGATION_RDOWN );
 
     GuiDriver_LabelDestroy(&info_labelTitle);
     GuiDriver_LabelDestroy(&info_labelData);
@@ -146,7 +146,7 @@ static void info_Task( task_param_t param )
 
 		switch( info_dataPacket.type )
 		{
-			case packetType_pressUp:
+			case packetType_pressRightUp:
 			{
 				infoScrNum = ( (INFO_SCREENS_NUM-1) == infoScrNum ) ?
 				    0 :
@@ -156,7 +156,7 @@ static void info_Task( task_param_t param )
 				break;
 			}
 
-			case packetType_pressDown:
+			case packetType_pressRightDown:
 			{
 				infoScrNum = ( 0 == infoScrNum ) ?
 				    (INFO_SCREENS_NUM-1) :
